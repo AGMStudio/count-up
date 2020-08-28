@@ -1,10 +1,10 @@
 /*!
-* jquery.countup.js 1.0.3
+* jquery.countup.js 1.0.4
 *
 * Copyright 2016, Adrián Guerra Marrero http://agmstudio.io @AGMStudio_io
 * Released under the MIT License
 *
-* Date: Oct 27, 2016
+* Date: Aug 28, 2020
 */
 (function( $ ){
   "use strict";
@@ -77,10 +77,13 @@
 
             // Start the count up
             setTimeout($this.data('counterup-func'),delay);
+
+            // Destroy waypoint so that it will be triggered only once
+            this.destroy();
         };
 
         // Perform counts when the element gets into view
-        $this.waypoint(counterUpper, { offset: '100%', triggerOnce: true });
+        $this.waypoint(counterUpper, { offset: '100%' });
     });
 
   };
